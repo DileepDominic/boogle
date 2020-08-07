@@ -27,7 +27,7 @@ class Trie(object):
                 return None
             currentNode = currentNode.children[character]
         if currentNode.isWord:
-            return True
+            return currentNode
 
     def begin_with(self, prefix):
         words = list()
@@ -52,7 +52,7 @@ class Trie(object):
             currentNode = self.root
         count = 1
         for letter in currentNode.children:
-            count += self.size(currentNode.children[letter])
+            count += self.height(currentNode.children[letter])
         return count
 
 
